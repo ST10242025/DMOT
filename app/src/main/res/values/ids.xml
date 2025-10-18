@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="designView1" type="id" />
+    <item name="welcomeTxt" type="id" />
+    <item name="loginEmailLayout" type="id" />
+    <item name="loginEmail" type="id" />
+    <item name="loginPasswordLayout" type="id" />
+    <item name="loginPassword" type="id" />
+    <item name="homeBtnLogin" type="id" />
+    <item name="linearLayout" type="id" />
+    <item name="textRegister" type="id" />
+    <item name="designView2" type="id" />
+    <item name="registerEmailLayout" type="id" />
+    <item name="registerEmail" type="id" />
+    <item name="registerPasswordLayout" type="id" />
+    <item name="registerPassword" type="id" />
+    <item name="registerConfirmPasswordLayout" type="id" />
+    <item name="registerConfirmPassword" type="id" />
+    <item name="homeBtnRegister" type="id" />
+    <item name="textLogin" type="id" />
+    <item name="designView3" type="id" />
+</resources>
