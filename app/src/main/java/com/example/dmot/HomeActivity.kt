@@ -32,7 +32,9 @@ class HomeActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> true
-                R.id.booking -> {
+
+                R.id.bookings -> {
+
                     startActivity(Intent(this, BookingsActivity::class.java))
                     true
                 }
