@@ -32,11 +32,13 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.homeBtnRegister.setOnClickListener {
+            val name = binding.registerName.text.toString().trim()
             val email = binding.registerEmail.text.toString().trim()
             val password = binding.registerPassword.text.toString().trim()
             val confirmPassword = binding.registerConfirmPassword.text.toString().trim()
 
-            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                binding.registerNameLayout.error = "Please enter your name"
                 binding.registerEmailLayout.error = "Please enter your email"
                 binding.registerPasswordLayout.error = "Please enter your password"
                 binding.registerConfirmPasswordLayout.error = "Please enter your password"
@@ -49,7 +51,23 @@ class RegisterActivity : AppCompatActivity() {
                 val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
                 sharedPref.edit().putString("emailKey", emailKey).apply()
 
-                val user = User(email, password, confirmPassword)
+                val user = User(name, email, password, confirmPassword)
+
+                database.child(emailKey).setValue(user)
+                    .addOnSuccessListener {
+                        val homeIntent = Intent(this@RegisterActivity, HomeActivity::class.java)
+                        homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        startActivity(homeIntent)
+                        finish()
+                    }
+                    .addOnFailureListener { exception ->
+                        // Display error message to user
+                        binding.registerEmailLayout.error =
+                            "Registration failed: ${exception.message}"
+
+                        // Optionally log the error
+                        android.util.Log.e("RegisterActivity", "Registration failed", exception)
+                    }
             }
         }
     }

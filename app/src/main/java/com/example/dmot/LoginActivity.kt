@@ -45,8 +45,10 @@ class LoginActivity : AppCompatActivity() {
                             val userPassword = snapshot.child("password").value.toString()
 
                             if (userPassword == password) {
-                                val calculationIntent = Intent(this@LoginActivity, HomeActivity::class.java)
-                                startActivity(calculationIntent)
+                                val homeIntent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                startActivity(homeIntent)
+                                finish()
                             } else {
                                 binding.loginPasswordLayout.error = "Incorrect password"
                             }

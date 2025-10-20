@@ -12,14 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DMOT">
         <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DMOT" />
+        <activity
             android:name=".RegisterActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
