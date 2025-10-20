@@ -1,6 +1,7 @@
 package com.example.dmot
 
 import android.os.Bundle
+import android.content.Intent
 import com.google.firebase.database.FirebaseDatabase
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dmot.databinding.ActivityHomeBinding
@@ -25,5 +26,26 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+        // Bottom navigation setup
+        val bottomNav = binding.bottomNavView
+        bottomNav.selectedItemId = R.id.home
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> true
+                R.id.booking -> {
+                    startActivity(Intent(this, BookingsActivity::class.java))
+                    true
+                }
+                R.id.settings -> {
+                    startActivity(Intent(this, SettingsActivity::class.java))
+                    true
+                }
+                R.id.profile -> {
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                    true
+                }
+                else -> false
+            }
         }
+    }
     }
