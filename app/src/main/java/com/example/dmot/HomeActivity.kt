@@ -1,17 +1,12 @@
 package com.example.dmot
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.FirebaseDatabase
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.dmot.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,22 +15,15 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        val emailKey = sharedPref.getString("emailKey", null)
+        if (emailKey != null) {
+            val dbRef = FirebaseDatabase.getInstance().getReference("users")
+            dbRef.child(emailKey).get().addOnSuccessListener { snapshot ->
+                val name = snapshot.child("name").getValue(String::class.java) ?: "User"
+                binding.textView3.text = "Hi $name"
+            }
+        }
 
-        val navController = findNavController(R.id.nav_host_fragment_content_home)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
         }
     }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_home)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
-}
