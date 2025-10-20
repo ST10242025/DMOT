@@ -4,7 +4,7 @@
     <item android:title="Home" android:id="@+id/home" android:icon="@drawable/home_icon" />
     <item android:title="Booking" android:id="@+id/booking" android:icon="@drawable/booking_icon" />
     <item android:title="Settings" android:id="@+id/settings" android:icon="@drawable/settings_icon" />
-    <item android:title="Profile" android:id="@+id/tips" android:icon="@drawable/profile_icon" />
+    <item android:title="Profile" android:id="@+id/profile" android:icon="@drawable/profile_icon" />
 
 
 </menu>
