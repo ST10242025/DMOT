@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.DMOT" parent="Base.Theme.DMOT" />
+    <style name="circleImage">
+        <item name="cornerSize">30%</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
 </resources>

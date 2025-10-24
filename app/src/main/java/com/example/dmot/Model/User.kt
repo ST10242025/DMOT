@@ -1,4 +1,4 @@
-package com.example.dmot.models
+package com.example.dmot.Model
 
 data class User (
     val name: String,

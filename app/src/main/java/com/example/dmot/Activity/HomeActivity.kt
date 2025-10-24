@@ -1,9 +1,10 @@
-package com.example.dmot
+package com.example.dmot.Activity
 
 import android.os.Bundle
 import android.content.Intent
 import com.google.firebase.database.FirebaseDatabase
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dmot.R
 import com.example.dmot.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
             val dbRef = FirebaseDatabase.getInstance().getReference("users")
             dbRef.child(emailKey).get().addOnSuccessListener { snapshot ->
                 val name = snapshot.child("name").getValue(String::class.java) ?: "User"
-                binding.textView3.text = "Hi $name"
+                binding.textView2.text = "Hi $name"
             }
         }
 
@@ -32,14 +33,8 @@ class HomeActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> true
-
                 R.id.bookings -> {
-
                     startActivity(Intent(this, BookingsActivity::class.java))
-                    true
-                }
-                R.id.settings -> {
-                    startActivity(Intent(this, SettingsActivity::class.java))
                     true
                 }
                 R.id.profile -> {
@@ -50,4 +45,4 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
-    }
+}

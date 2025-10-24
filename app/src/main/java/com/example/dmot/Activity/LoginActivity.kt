@@ -1,4 +1,4 @@
-package com.example.dmot
+package com.example.dmot.Activity
 
 import android.content.Intent
 import android.os.Bundle

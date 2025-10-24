@@ -1,15 +1,11 @@
-package com.example.dmot
+package com.example.dmot.Activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.dmot.databinding.ActivityLoginBinding
 import com.example.dmot.databinding.ActivityRegisterBinding
-import com.example.dmot.models.User
-import com.google.firebase.Firebase
+import com.example.dmot.Model.User
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -66,7 +62,7 @@ class RegisterActivity : AppCompatActivity() {
                             "Registration failed: ${exception.message}"
 
                         // Optionally log the error
-                        android.util.Log.e("RegisterActivity", "Registration failed", exception)
+                        Log.e("RegisterActivity", "Registration failed", exception)
                     }
             }
         }
