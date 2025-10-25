@@ -10,6 +10,9 @@ import com.example.dmot.R
 import com.example.dmot.ViewModel.MainViewModel
 import com.example.dmot.databinding.ActivityHomeBinding
 
+// This method was adapted from YouTube
+// https://www.youtube.com/watch?v=rsK4UXqs6Lk
+
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
@@ -47,6 +50,11 @@ class HomeActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+        }
+
+        binding.questionImg.setOnClickListener {
+            val intent = Intent(this, InstructionActivity::class.java)
+            startActivity(intent)
         }
 
         initDoctor()

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DMOT">
         <activity
+            android:name=".Activity.InstructionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DoctorActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.HomeActivity"
             android:exported="false"
             android:theme="@style/Theme.DMOT" />
