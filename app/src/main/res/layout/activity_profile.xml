@@ -1,131 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:gravity="center_horizontal"
-    android:padding="16dp">
+    android:background="#FFFFFF">
 
-    <!-- DMOT Logo -->
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/dmotlogo"
-        android:contentDescription="App logo"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Profile Container -->
-    <LinearLayout
-        android:id="@+id/profileCard"
+    <!-- Scrollable content above the nav bar -->
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_margin="16dp"
-        android:gravity="center_horizontal"
-        android:backgroundTint="#339989"
-        android:clipToOutline="true"
-        android:elevation="2dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/rounded_card">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginBottom="56dp"> <!-- space for nav bar -->
 
-        <!-- Username -->
-        <TextView
-            android:text="Username"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/etUsername"
-            android:text="Steven_theGuy"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textColor="#FFFFFF"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="12dp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
 
-        <!-- Email -->
-        <TextView
-            android:text="Email"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <!-- DMOT Logo -->
 
-        <EditText
-            android:id="@+id/etEmail"
-            android:text="test1@gmail.com"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textColor="#FFFFFF"
-            android:inputType="textEmailAddress"
-            android:layout_marginBottom="12dp" />
+            <!-- Profile Card -->
 
-        <!-- Phone -->
-        <TextView
-            android:text="Phone"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="283dp"
+                android:layout_height="159dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="App logo"
+                android:src="@drawable/dmotlogo" />
 
-        <EditText
-            android:id="@+id/etPhone"
-            android:text="+27 86 252 1691"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textColor="#FFFFFF"
-            android:inputType="phone"
-            android:layout_marginBottom="12dp" />
+            <LinearLayout
+                android:id="@+id/profileCard"
+                android:layout_width="381dp"
+                android:layout_height="372dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/rounded_card"
+                android:backgroundTint="#339989"
+                android:clipToOutline="true"
+                android:elevation="2dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <!-- Address -->
-        <TextView
-            android:text="Address"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                <!-- Username -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username"
+                    android:textSize="18dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etAddress"
-            android:text="South Africa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textColor="#FFFFFF"
-            android:inputType="textPostalAddress"
-            android:layout_marginBottom="20dp" />
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPersonName"
+                    android:text="Steven_theGuy"
+                    android:textColor="#FFFFFF" />
 
-        <!-- Save Button -->
-        <Button
-            android:id="@+id/btnSave"
-            android:text="Save"
-            android:textColor="#339989"
-            android:backgroundTint="#FFFFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
-    </LinearLayout>
+                <!-- Email -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textSize="18dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
 
-    <!-- Bottom Navigation -->
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@android:color/transparent"
+                    android:inputType="textEmailAddress"
+                    android:text="test1@gmail.com"
+                    android:textColor="#FFFFFF" />
+
+                <!-- Phone -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:textSize="18dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@android:color/transparent"
+                    android:inputType="phone"
+                    android:text="+27 86 252 1691"
+                    android:textColor="#FFFFFF" />
+
+                <!-- Address -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textSize="18dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPostalAddress"
+                    android:text="South Africa"
+                    android:textColor="#FFFFFF" />
+
+                <!-- Save Button -->
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="Save"
+                    android:textColor="#339989" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Fixed Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav"
+        android:layout_gravity="bottom"
         android:background="#2E4057"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        android:layout_gravity="bottom" />
+        app:menu="@menu/bottom_nav" />
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

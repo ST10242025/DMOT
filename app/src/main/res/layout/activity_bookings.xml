@@ -1,147 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="16dp">
+    android:background="#FFFFFF">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#ebfff9"
-        android:padding="16dp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:clipToOutline="true"
-        android:elevation="2dp"
-        android:backgroundTint="#ebfff9">
+    <!-- Scrollable Form Content -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#339989"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/back"
-                android:contentDescription="Back"
-                android:layout_marginEnd="8dp"
-                app:tint="#FFFFFF" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Appointment Form"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Form -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="16dp">
+            android:background="#ebfff9"
+            android:padding="16dp"
+            android:gravity="top"
+            android:elevation="2dp">
 
-            <EditText
-                android:id="@+id/etPatientName"
-                android:hint="Full Name Of Patient"
+            <!-- Header -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:backgroundTint="#a9a3e0" />
+                android:background="#339989"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
 
-            <EditText
-                android:id="@+id/etAddress"
-                android:hint="Address"
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/back"
+                    android:contentDescription="Back"
+                    android:layout_marginEnd="8dp"
+                    app:tint="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Appointment Form"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Form -->
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPostalAddress"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#a9a3e0" />
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/etMedicalAid"
-                android:hint="Medical Aid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#a9a3e0" />
+                <EditText
+                    android:id="@+id/etPatientName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#a9a3e0"
+                    android:hint="Full Name Of Patient"
+                    android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/etGuarantor"
-                android:hint="Full Name Of Guarantor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#a9a3e0" />
+                <EditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#a9a3e0"
+                    android:hint="Address"
+                    android:inputType="textPostalAddress" />
 
-            <Spinner
-                android:id="@+id/otSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"
-                android:prompt="@string/ot_prompt" />
+                <EditText
+                    android:id="@+id/etMedicalAid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#a9a3e0"
+                    android:hint="Medical Aid"
+                    android:inputType="text" />
 
-            <EditText
-                android:id="@+id/appointmentDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Select Date"
-                android:focusable="false"
-                android:clickable="true"
-                android:inputType="none"
-                android:drawableEnd="@android:drawable/ic_menu_today" />
+                <EditText
+                    android:id="@+id/etGuarantor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#a9a3e0"
+                    android:hint="Full Name Of Guarantor"
+                    android:inputType="textPersonName" />
 
-            <CheckBox
-                android:id="@+id/cbTerms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="I accept the terms"
-                android:layout_marginTop="12dp"
-                android:textColor="#2e4057" />
+                <Spinner
+                    android:id="@+id/otSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:prompt="@string/ot_prompt"
+                    android:spinnerMode="dropdown" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Read our T and Cs"
-                android:textSize="12sp"
-                android:textColor="#49416d" />
+                <EditText
+                    android:id="@+id/appointmentDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:drawableEnd="@android:drawable/ic_menu_today"
+                    android:focusable="false"
+                    android:hint="Select Date"
+                    android:inputType="none" />
+
+                <CheckBox
+                    android:id="@+id/cbTerms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="I accept the terms"
+                    android:textColor="#2e4057" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Read our T and Cs"
+                    android:textColor="#49416d"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="#339989"
+                android:padding="16dp"
                 android:text="SUBMIT"
                 android:textAllCaps="true"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="#339989"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:itemIconSize="38dp"
-            app:labelVisibilityMode="unlabeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav"/>
+    </ScrollView>
 
-
-    </LinearLayout>
-
-
-</ScrollView>
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:itemIconSize="38dp"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
