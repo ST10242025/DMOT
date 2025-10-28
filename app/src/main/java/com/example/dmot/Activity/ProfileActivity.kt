@@ -36,11 +36,11 @@ class ProfileActivity : AppCompatActivity() {
                     startActivity(Intent(this, HomeActivity::class.java))
                     true
                 }
-                R.id.bookings -> true
-                R.id.profile -> {
-                    startActivity(Intent(this, ProfileActivity::class.java))
+                R.id.bookings -> {
+                    startActivity(Intent(this, BookingsActivity::class.java))
                     true
                 }
+                R.id.profile -> true
                 else -> false
             }
         }
