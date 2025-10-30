@@ -12,7 +12,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.dmot.R
 
 
-
+//This code was taken and adapted from Youtube
+//Link: https://www.youtube.com/watch?v=K4CGYiQu52s
+//Author: @CodesEasy
+//Author Link: https://www.youtube.com/@CodesEasy
 
 class InstructionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +36,11 @@ class InstructionActivity : AppCompatActivity() {
 
 
         val container = findViewById<LinearLayout>(R.id.stepsContainer)
+
+        //This code was taken and adapted from geeksforgeeks
+        //Link: https://www.geeksforgeeks.org/android/android-listview-in-kotlin
+        //Author: praveenruhil
+        //Author Link: https://www.geeksforgeeks.org/user/praveenruhil
 
         val items = listOf(
             "To Make An Appointment follow the Nine steps below:",

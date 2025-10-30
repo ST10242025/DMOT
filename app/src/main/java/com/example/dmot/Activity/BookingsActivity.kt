@@ -14,6 +14,8 @@ import java.util.Calendar
 class BookingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBookingsBinding
 
+
+
     // Email address of the admin
     private val adminEmail = "otadmin@dmot.co.za"
 
@@ -84,6 +86,16 @@ class BookingsActivity : AppCompatActivity() {
         }
     }
 
+    //This code was taken and adapted from Youtube
+    //Link: https://www.youtube.com/watch?v=4WKCMAbu7ZI
+    //Author: @techblax
+    //Author Link: https://www.youtube.com/@techblax
+
+    //This code was taken and adapted from Youtube
+    //Link: https://www.youtube.com/watch?v=GOqv3jnw_Go
+    //Author: @kbcoder8788
+    //Author Link: https://www.youtube.com/@kbcoder8788
+
     // Function to send email
     private fun sendBookingEmail(patientName: String, selectedOT: String, appointmentDate: String) {
         val subject = "New Appointment Booking"
@@ -97,8 +109,8 @@ class BookingsActivity : AppCompatActivity() {
             Please confirm and add to the schedule.
         """.trimIndent()
 
-        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-            data = Uri.parse("mailto:")
+        val emailIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "message/rfc822"
             putExtra(Intent.EXTRA_EMAIL, arrayOf(adminEmail))
             putExtra(Intent.EXTRA_SUBJECT, subject)
             putExtra(Intent.EXTRA_TEXT, body)
