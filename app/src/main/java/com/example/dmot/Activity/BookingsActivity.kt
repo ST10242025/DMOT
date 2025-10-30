@@ -2,6 +2,7 @@ package com.example.dmot.Activity
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -12,6 +13,9 @@ import java.util.Calendar
 
 class BookingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBookingsBinding
+
+    // Email address of the admin
+    private val adminEmail = "otadmin@dmot.co.za"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,7 +77,38 @@ class BookingsActivity : AppCompatActivity() {
 
                 val message = "Appointment booked for $name with $selectedOT on $date"
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+
+                // Send email with booking details
+                sendBookingEmail(name, selectedOT, date)
             }
+        }
+    }
+
+    // Function to send email
+    private fun sendBookingEmail(patientName: String, selectedOT: String, appointmentDate: String) {
+        val subject = "New Appointment Booking"
+        val body = """
+            New appointment booking details:
+            
+            Patient Name: $patientName
+            Occupational Therapist: $selectedOT
+            Appointment Date: $appointmentDate
+            
+            Please confirm and add to the schedule.
+        """.trimIndent()
+
+        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:")
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(adminEmail))
+            putExtra(Intent.EXTRA_SUBJECT, subject)
+            putExtra(Intent.EXTRA_TEXT, body)
+        }
+
+        // Check if an email client is available
+        if (emailIntent.resolveActivity(packageManager) != null) {
+            startActivity(Intent.createChooser(emailIntent, "Send email via..."))
+        } else {
+            Toast.makeText(this, "No email client installed. Please install one to send the booking.", Toast.LENGTH_SHORT).show()
         }
     }
 }

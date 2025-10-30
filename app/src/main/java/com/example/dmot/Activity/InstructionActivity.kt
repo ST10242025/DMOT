@@ -42,8 +42,9 @@ class InstructionActivity : AppCompatActivity() {
             "Fourth: Provide the patient's Medical Aid Number",
             "Sixth: Full Name of the Guarantor",
             "Seventh: Select a date for the appointment (To be confirmed By the Admin)",
-            "Eighth: Read And Accept the T and C the check the box to Accept.",
-            "Ninth: Click Submit."
+            "Eighth: Select your OT by name in the dropdown menu.",
+            "Ninth: Read And Accept the T and C the check the box to Accept.",
+            "Tenth: Click Submit."
         )
 
         items.forEachIndexed { index, text ->
